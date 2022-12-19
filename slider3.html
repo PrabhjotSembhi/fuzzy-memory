@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .sliderParent {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 650px;
+
+        }
+
+        .portalWrapper {
+            background-color: aqua;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .portalClip {
+            clip-path: inset(10px round 50% 50% 0px 0px);
+            width: 250px;
+            height: 300px;
+
+        }
+
+
+        .expandedClip {
+            clip-path: inset(10px round 50% 50% 0px 0px);
+            width: 5000px;
+            height: 6000px;
+
+        }
+
+        .clipborder {
+            clip-path: inset(10px round 50% 50% 0px 0px);
+            width: 260px;
+            height: 310px;
+            background-color: rgb(255, 255, 255);
+            box-shadow: #fff 10px 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .active {
+        width: 100%;
+        height: 650px;
+        transition: all 1.5s;
+        position: absolute;
+      }
+
+      .active .portalCLip {
+        overflow: hidden;
+        width: 5000px;
+        height: 6000px;
+        clip-path: inset(0 0 0 0px);
+
+        transition: all 1.5s;
+      }
+
+    </style>
+</head>
+
+<body>
+    <div class="sliderParent">
+
+        <div class="portalWrapper portal1">
+            <div class="clipborder">
+                <div class="portalClip pclip1">
+                    <iframe width="100%" height="100%"
+                        src="https://momento360.com/e/u/1d7c32dacd214affaa10bf562fd5bab1?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium"
+                        frameborder="0"></iframe>
+                </div>
+
+            </div>
+
+
+            <div class="portalWrapper portal2">
+                <div class="clipborder">
+                    <div class="portalClip pclip2">
+                        <iframe width="100%" height="100%"
+                            src="https://momento360.com/e/u/1d7c32dacd214affaa10bf562fd5bab1?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium"
+                            frameborder="0"></iframe>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+            <h2 class="text">Lorem ipsum dolor sit amet.</h2>
+
+        </div>
+
+
+        <script>
+
+            const portal1 = document.querySelector(".portal1");
+            const portal2 = document.querySelector(".portal2");
+            /*const portal3 = document.querySelector(".portal3");
+            const portal4 = document.querySelector(".portal4");
+            const portal5 = document.querySelector(".portal5");*/
+
+            const pclip1 = document.querySelector(".pclip1");
+            const pclip2 = document.querySelector(".pclip2");
+            /*const pclip3 = document.querySelector(".pclip3");
+            const pclip4 = document.querySelector(".pclip4");
+            const pclip5 = document.querySelector(".pclip5");
+            */
+            let str = document.querySelector(".text");
+
+
+
+            portal1.addEventListener("click", function (e) {
+                /* portal5.classList.remove("active");
+                 portal2.classList.remove("active");
+                 portal3.classList.remove("active");
+                 portal4.classList.remove("active");*/
+
+
+
+
+                portal1.classList.add("active");
+                pclip1.classList.add("expandedClip");
+
+                portal1.style.zIndex = "0";
+
+
+
+                setTimeout(function name() {
+                    portal2.style.display = "flex";
+
+                    portal2.style.zIndex = "3";
+
+                }, 800);
+
+                setTimeout(function name() {
+
+                    str.style.opacity = '1';
+                }, 2000);
+
+
+            });
+
+        </script>
+</body>
+
+</html>

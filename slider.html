@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .SliderParent {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 650px;
+        overflow: hidden;
+      }
+
+      .PortalWrapper {
+        position: absolute;
+        width: 100%;
+        height: 650px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .portalCLip {
+        clip-path: inset(10px round 50% 50% 0px 0px);
+        width: 250px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .portal {
+        width: 100%;
+        height: 650px;
+        position: absolute;
+        z-index: 0;
+        transition: all 0.21s;
+      }
+
+      .active {
+        width: 100%;
+        height: 650px;
+        transition: all 0.21s;
+        position: absolute;
+      }
+
+      .active .portalCLip {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        clip-path: inset(0 0 0px 0px);
+
+        transition: all 0.21s;
+      }
+
+      .next-portal {
+        z-index: 9;
+      }
+
+     
+
+      @keyframes flot {
+        0% {
+          text-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+          transform: translatey(0px);
+        }
+        50% {
+          text-shadow: 0 25px 15px 0px rgba(0, 0, 0, 1);
+          transform: translatey(-15px);
+        }
+        100% {
+          text-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+          transform: translatey(0px);
+        }
+      }
+
+      @keyframes flotX {
+        0% {
+          transform: translatex(0px);
+        }
+        50% {
+          transform: translatex(-10px);
+        }
+        100% {
+          transform: translatex(0px);
+        }
+      }
+
+      .fade {
+        opacity: 0;
+      }
+
+      .text {
+        position: relative;
+        z-index: 100;
+        max-width: 500px;
+        animation: flotX 6s ease-in-out infinite;
+        opacity: 0;
+        transition: all 1s;
+      }
+
+      .text span {
+        font-size: 52px;
+        color: aliceblue;
+        display: inline-block;
+        animation: flot 6s ease-in-out infinite;
+      }
+
+      .portal2 {
+        display: none;
+      }
+      .portal3 {
+        display: none;
+      }
+      .portal4 {
+        display: none;
+      }
+      
+    </style>
+  </head>
+
+  <body>
+    <div class="SliderParent">
+      <div class="PortalWrapper portal1">
+        <div class="portalCLip">
+          <iframe
+            class="portal"
+            width="100%"
+            height="100%"
+            src="https://momento360.com/e/u/1d7c32dacd214affaa10bf562fd5bab1?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium"
+            frameborder="0"
+          ></iframe>
+        </div>
+      </div>
+
+      <div class="PortalWrapper portal2">
+        <div class="portalCLip">
+          <iframe
+            class="portal"
+            width="100%"
+            height="100%"
+            src="https://momento360.com/e/u/b120e94a5d2448bb99fb6b2b74a85dd1?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium"
+            frameborder="0"
+          ></iframe>
+        </div>
+      </div>
+
+      <div class="PortalWrapper portal3">
+        <div class="portalCLip">
+          <iframe
+            class="portal"
+            width="100%"
+            height="100%"
+            src="https://momento360.com/e/u/631d3a11319c490e98b43041a99a9a5a?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium"
+            frameborder="0"
+          ></iframe>
+        </div>
+      </div>
+
+      <div class="PortalWrapper portal4">
+        <div class="portalCLip">
+          <iframe
+            class="portal"
+            width="100%"
+            height="100%"
+            src="https://momento360.com/e/u/306c4d7a5532454caaae2f5cae7c31b8?utm_campaign=embed&utm_source=other&heading=144.51&pitch=16.5&field-of-view=75&size=medium"
+            frameborder="0"
+          ></iframe>
+        </div>
+      </div>
+
+      
+      <div class="PortalWrapper portal5">
+        <div class="portalCLip">
+          <iframe
+            class="portal"
+            width="100%"
+            height="100%"
+            src="https://momento360.com/e/u/3ca8c89704f147abba5afe3ee31c1a5f?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=79&size=medium&display-plan=true"
+            frameborder="0"
+          ></iframe>
+        </div>
+      </div>
+
+
+     
+            <h2 class="text">Lorem ipsum dolor sit amet.</h2>
+    
+    </div>
+
+    <script>
+      const portal1 = document.querySelector(".portal1");
+      const portal2 = document.querySelector(".portal2");
+      const portal3 = document.querySelector(".portal3");
+      const portal4 = document.querySelector(".portal4");
+      const portal5 = document.querySelector(".portal5");
+
+
+      let str = document.querySelector(".text");
+
+      portal1.addEventListener("click", function (e) {
+        portal5.classList.remove("active");
+
+        console.log(e);
+        portal5.style.display = "none";
+        portal1.classList.add("active");
+        portal1.style.zIndex = "0";
+
+        setTimeout(function name() {
+          portal2.style.display = "flex";
+
+          portal2.style.zIndex = "3";
+
+        }, 800);
+
+        setTimeout(function name() {
+         
+          str.style.opacity = '1';
+        }, 2000);
+
+
+      });
+
+
+
+
+      portal2.addEventListener("click", function (e) {
+        portal1.classList.remove("active");
+
+        console.log(e);
+        portal1.style.display = "none";
+        portal2.classList.add("active");
+        portal2.style.zIndex = "0";
+
+        setTimeout(function name() {
+          portal3.style.display = "flex";
+
+          portal3.style.zIndex = "3";
+
+        }, 800);
+
+        setTimeout(function name() {
+         
+          str.style.opacity = '1';
+        }, 2000);
+
+
+      });
+
+      
+      portal3.addEventListener("click", function (e) {
+        portal2.classList.remove("active");
+
+        console.log(e);
+        portal2.style.display = "none";
+        portal3.classList.add("active");
+        portal3.style.zIndex = "0";
+
+        setTimeout(function name() {
+          portal4.style.display = "flex";
+
+          portal4.style.zIndex = "3";
+
+        }, 800);
+
+        setTimeout(function name() {
+         
+          str.style.opacity = '1';
+          console.log('p3')
+        }, 2000);
+
+
+      });
+
+
+      
+      portal4.addEventListener("click", function (e) {
+        portal3.classList.remove("active");
+
+        console.log(e);
+        portal3.style.display = "none";
+        portal4.classList.add("active");
+        portal4.style.zIndex = "0";
+
+        setTimeout(function name() {
+          portal5.style.display = "flex";
+
+          portal5.style.zIndex = "3";
+
+        }, 800);
+
+        setTimeout(function name() {
+         
+          str.style.opacity = '1';
+          console.log('p4')
+
+        }, 2000);
+
+
+      });
+
+
+      portal5.addEventListener("click", function (e) {
+        portal4.classList.remove("active");
+
+        console.log(e);
+        portal4.style.display = "none";
+        portal5.classList.add("active");
+        portal5.style.zIndex = "0";
+
+        setTimeout(function name() {
+          portal1.style.display = "flex";
+
+          portal1.style.zIndex = "3";
+
+        }, 800);
+
+        setTimeout(function name() {
+         
+          str.style.opacity = '1';
+          console.log('p5')
+
+        }, 2000);
+
+
+      });
+
+      
+      
+      
+
+ 
+
+
+
+
+
+      
+      let strText = str.textContent;
+      let SplitText = strText.split("");
+
+      str.textContent = "";
+      for (let i = 0; i < SplitText.length; i++) {
+        str.style.color = "blue";
+
+        if (SplitText[i] == " ") {
+          console.log("spavee");
+          str.innerHTML += "<span class='fade'>_" + SplitText[i] + "</span>";
+        } else {
+          str.innerHTML += "<span>" + SplitText[i] + "</span>";
+        }
+      }
+    </script>
+  </body>
+</html>

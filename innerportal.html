@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+
+      .sliderParent {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .portalContainer {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        transition: all 0.5s;
+      }
+
+      .bgPortal {
+        position: absolute;
+      }
+
+      .portalCLip {
+        clip-path: inset(10px round 50% 50% 0px 0px);
+        width: 250px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 1.2s;
+      }
+
+      .portal {
+        position: absolute;
+        z-index: 10;
+      }
+
+      .borderclip {
+        clip-path: inset(10px round 50% 50% 0px 0px);
+        width: 270px;
+        height: 320px;
+        display: flex;
+        justify-content: center;
+        background: #ffffff;
+        align-items: center;
+        transition: all 1.2s;
+      }
+
+      .window {
+        filter: url(#wavesEffect);
+        position: relative;
+        z-index: 100;
+        width: 100%;
+        height: 100%;
+        background: #ffffff00;
+      }
+
+      @keyframes windowbgopening {
+        0% {
+          width: 270px;
+          height: 320px;
+        }
+        20% {
+          width: 230px;
+          height: 273px;
+        }
+        100% {
+          width: 10020px;
+          height: 12020px;
+        }
+      }
+
+      @keyframes windowopening {
+        0% {
+          width: 250px;
+          height: 300px;
+        }
+        20% {
+          width: 210px;
+          height: 251px;
+        }
+        100% {
+          width: 10000px;
+          height: 12000px;
+        }
+      }
+
+      .active .borderclip {
+        animation: windowbgopening 2s forwards;
+      }
+
+      .active .portalCLip {
+        animation: windowopening 2s forwards;
+      }
+
+      .portalContainer2,
+      .portalContainer3,
+      .portalContainer4 {
+        z-index: -1;
+      }
+
+      .watertext {
+        position: relative;
+        z-index: 10;
+      }
+
+      #AnimText2,
+      #AnimText3,
+      #AnimText4,
+      #AnimText5 {
+        display: none;
+      }
+
+      svg {
+        visibility: hidden;
+      }
+
+      .water {
+        filter: url(#water);
+
+        font-family: 'Poppins', sans-serif;
+        position: relative;
+        z-index: 200;
+        font-size: 60px;
+        font-weight: 500;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="sliderParent">
+      <div class="portalContainer portalContainer1">
+        <iframe
+          class="bgPortal"
+          width="100%"
+          height="100%"
+          src="https://momento360.com/e/u/3ca8c89704f147abba5afe3ee31c1a5f?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=79&size=medium&display-plan=true"
+          frameborder="0"
+        ></iframe>
+
+        <div class="borderclip bclip1">
+          <div class="portalCLip pclip1">
+            <iframe
+              class="portal"
+              width="100%"
+              height="100%"
+              src="https://momento360.com/e/u/1d7c32dacd214affaa10bf562fd5bab1?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium"
+              frameborder="0"
+            ></iframe>
+
+            <div class="window portal1"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portalContainer portalContainer2">
+        <iframe
+          class="bgPortal"
+          width="100%"
+          height="100%"
+          src="https://momento360.com/e/u/1d7c32dacd214affaa10bf562fd5bab1?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium"
+          frameborder="0"
+        ></iframe>
+
+        <div class="borderclip bclip2">
+          <div class="portalCLip pclip2">
+            <iframe
+              class="portal"
+              width="100%"
+              height="100%"
+              src="https://momento360.com/e/u/631d3a11319c490e98b43041a99a9a5a?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium"
+              frameborder="0"
+            ></iframe>
+
+            <div class="window portal2"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portalContainer portalContainer3">
+        <iframe
+          class="bgPortal"
+          width="100%"
+          height="100%"
+          src="https://momento360.com/e/u/631d3a11319c490e98b43041a99a9a5a?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium"
+          frameborder="0"
+        ></iframe>
+
+        <div class="borderclip bclip3">
+          <div class="portalCLip pclip3">
+            <iframe
+              class="portal"
+              width="100%"
+              height="100%"
+              src="https://momento360.com/e/u/b120e94a5d2448bb99fb6b2b74a85dd1?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium"
+              frameborder="0"
+            ></iframe>
+
+            <div class="window portal3"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portalContainer portalContainer4">
+        <iframe
+          class="bgPortal"
+          width="100%"
+          height="100%"
+          src="https://momento360.com/e/u/b120e94a5d2448bb99fb6b2b74a85dd1?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium"
+          frameborder="0"
+        ></iframe>
+
+        <div class="borderclip bclip4">
+          <div class="portalCLip pclip4">
+            <iframe
+              class="portal"
+              width="100%"
+              height="100%"
+              src="https://momento360.com/e/u/3ca8c89704f147abba5afe3ee31c1a5f?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=79&size=medium&display-plan=true"
+              frameborder="0"
+            ></iframe>
+
+            <div class="window portal4"></div>
+          </div>
+        </div>
+      </div>
+
+      <svg width="1" height="1" xmlns="http://www.w3.org/2000/svg">
+        <filter id="water">
+          <feTurbulence
+            id="water-turbulence"
+            numOctaves="10"
+            seed="1"
+            baseFrequency="0.5  1  0.5 "
+          />
+          <feDisplacementMap
+            id="water-displacement"
+            scale="20"
+            in="SourceGraphic"
+          />
+        </filter>
+
+        <animate
+          xlink:href="#water-turbulence"
+          attributeName="baseFrequency"
+          values="0.001; 0.002; 0.0025; 0.003;  0.0025;   0.002; 0.001;"
+          dur="10s"
+          begin="0s"
+          repeatCount="indefinite"
+        />
+      </svg>
+      <p id="AnimText1" class="water">Lorem 1111 dolor sit.</p>
+      <p id="AnimText2" class="water">Lorem 2222 dolor sit.</p>
+      <p id="AnimText3" class="water">
+        Lorem 3333<br />
+        dolor sit.
+      </p>
+      <p id="AnimText4" class="water">Lorem 4444 dolor sit.</p>
+      <p id="AnimText5" class="water">Lorem 5555 dolor sit.</p>
+      <p></p>
+    </div>
+
+    <script>
+      const pclip1 = document.querySelector(".pclip1");
+      const bclip1 = document.querySelector(".bclip1");
+      const portal1 = document.querySelector(".portal1");
+      const portalContainer1 = document.querySelector(".portalContainer1");
+
+      const pclip2 = document.querySelector(".pclip2");
+      const bclip2 = document.querySelector(".bclip2");
+      const portal2 = document.querySelector(".portal2");
+      const portalContainer2 = document.querySelector(".portalContainer2");
+
+      const pclip3 = document.querySelector(".pclip3");
+      const bclip3 = document.querySelector(".bclip3");
+      const portal3 = document.querySelector(".portal3");
+      const portalContainer3 = document.querySelector(".portalContainer3");
+
+      const pclip4 = document.querySelector(".pclip4");
+      const bclip4 = document.querySelector(".bclip4");
+      const portal4 = document.querySelector(".portal4");
+      const portalContainer4 = document.querySelector(".portalContainer4");
+
+      function animfun(
+        lastContainer,
+        activeContainer,
+        portalClip,
+        portalBorder,
+        upcomingContainer
+      ) {
+        lastContainer.classList.remove("active");
+        activeContainer.classList.add("active");
+
+        portalClip.style.width = "250px";
+        portalClip.style.height = "300px";
+
+        portalBorder.style.width = "270px";
+        portalBorder.style.height = "320px";
+
+        setTimeout(function () {
+          upcomingContainer.style.zIndex = "10";
+          activeContainer.style.zIndex = "0";
+        }, 1200);
+      }
+
+      portal1.addEventListener("click", () => animfun(portalContainer4, portalContainer1, pclip4,bclip4, portalContainer2 ))
+      portal2.addEventListener("click", () => animfun(portalContainer1, portalContainer2, pclip1,bclip1, portalContainer3 ))
+      portal3.addEventListener("click", () => animfun(portalContainer2, portalContainer3, pclip2,bclip2, portalContainer4 ))
+      portal4.addEventListener("click", () => animfun(portalContainer3, portalContainer4, pclip3,bclip3, portalContainer1 ))
+
+
+
+
+    </script>
+  </body>
+</html>

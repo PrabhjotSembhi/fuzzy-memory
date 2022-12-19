@@ -1,0 +1,66 @@
+<!-- TradingView Widget BEGIN -->
+
+
+<a id="myp-forex" href="https://www.tattvammarkets.com/forex-market/"> FOREX </a>
+
+
+
+<div class="myp-forex-tradingview-widget-container">
+
+  
+
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+  {
+    "width": "500",
+    "height": "350",
+    "symbolsGroups": [
+      {
+        "name": "Forex",
+        "originalName": "Forex",
+        "symbols": [
+          {
+            "name": "OANDA:EURUSD"
+          },
+          {
+            "name": "OANDA:GBPUSD"
+          },
+          {
+            "name": "OANDA:AUDUSD"
+          },
+          {
+            "name": "OANDA:NZDUSD"
+          },
+          {
+            "name": "OANDA:USDJPY"
+          },
+          {
+            "name": "OANDA:USDCAD"
+          }
+        ]
+      }
+    ],
+    "showSymbolLogo": true,
+    "colorTheme": "light",
+    "isTransparent": false,
+    "locale": "en"
+  }
+
+
+    </script>
+
+
+<script>
+  const forexmyp = document.getElementById('myp-forex');
+  const mypforexwidget = document.querySelector('.myp-forex-tradingview-widget-container');
+
+  forexmyp.addEventListener('mouseover', function () {
+    mypforexwidget.style.display = 'block';
+  })
+  forexmyp.addEventListener('mouseout', function () {
+    mypforexwidget.style.display = 'none';
+  })
+
+</script>
+  
+  </div>
+  <!-- TradingView Widget END -->

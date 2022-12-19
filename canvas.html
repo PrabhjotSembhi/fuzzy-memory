@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+
+      .conatainer {
+        width: 100%;
+        height: 100%;
+      }
+
+      body {
+        position: relative;
+        background-color: #000;
+        overflow: hidden;
+        color: #eee;
+        font-family: sans-serif;
+      }
+
+      .container {
+        text-align: center;
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+      }
+
+
+      .word {
+        pointer-events: none;
+        user-select: none;
+        font-size: 72px;
+        font-weight: 400;
+        filter: url("#goovey");
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <span class="word">Prabhjot </span>
+    </div>
+
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+      <defs>
+        <filter id="goovey">
+            <feTurbulence type="turbulence" 
+            baseFrequency="0.001" 
+            numOctaves="1" 
+            result="turbulence" >
+  <animate attributeName="baseFrequency" 
+           dur="24s" 
+           repeatcount="indefinite"
+           values="0.001; 0.02; 0.001; 0.02; 0.005; 0.001" 
+           calcMode="paced"
+           />
+</feTurbulence>
+<feDisplacementMap xChannelSelector="G" 
+                 yChannelSelector="G" 
+                 scale="15" 
+                 in="SourceGraphic" 
+                 in2="turbulence" />
+        </filter>
+      </defs>
+    </svg>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+  </body>
+</html>

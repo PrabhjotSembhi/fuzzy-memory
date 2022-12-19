@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+
+      .sliderParent {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .portalContainer {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .bgPortal {
+        position: absolute;
+      }
+
+      .portalCLip {
+        clip-path: inset(10px round 50% 50% 0px 0px);
+        width: 250px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .borderclip {
+        clip-path: inset(10px round 50% 50% 0px 0px);
+        width: 270px;
+        height: 320px;
+        display: flex;
+        justify-content: center;
+        background: #ffffff;
+        align-items: center;
+      }
+
+      .portal1 {
+        width: 100%;
+        height: 100%;
+      }
+
+      .trans{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 10;
+      }
+      
+    </style>
+  </head>
+
+  <body>
+    <div class="sliderParent">
+      <div class="portal1">
+        <div class="portalContainer">
+          <iframe
+            class="bgPortal"
+            width="100%"
+            height="100%"
+            src="https://momento360.com/e/u/3ca8c89704f147abba5afe3ee31c1a5f?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=79&size=medium&display-plan=true"
+            frameborder="0"
+          ></iframe>
+
+
+            <div class="borderclip bclip5">
+              <div class="portalCLip pclip5">
+                <iframe
+                  class="portal"
+                  width="100%"
+                  height="100%"
+                  src="https://momento360.com/e/u/1d7c32dacd214affaa10bf562fd5bab1?utm_campaign=embed&utm_source=other&heading=0&pitch=0&field-of-view=75&size=medium"
+                  frameborder="0"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const portal1 = document.querySelector(".portal1");
+
+      window.addEventListener("click", function (e) {
+        console.log(e);
+      });
+
+      let numb = portal1.childNodes.length;
+
+      portal1.firstElementChild.addEventListener("click", function (e) {
+        console.log(e);
+      });
+      console.log(numb)
+    </script>
+  </body>
+</html>
